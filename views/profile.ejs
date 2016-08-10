@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MiniDoodle</title>
+      <meta charset="utf-8">
+      <!-- <link rel="stylesheet" href="style.css" /> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <h1>hello world</h1>
+				<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      <div class='container'>
+         <div class='row'>
+            <div class='col-md-8 col-md-3'>
+               <canvas id="drawing"></canvas>
+            </div>
+         </div>
+      </div>
+   </body>
+<script src="http://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="client.js"></script>
+
+	 <!-- <script type="text/javascript">
+	 $(function() {
+			var mouse = {
+				 click: false,
+				 move: false,
+				 pos: {x:0, y:0},
+				 pos_prev: false
+			};
+			// get canvas element and create context
+			var canvas  = document.getElementById('drawing');
+			var body = document.querySelector('body');
+			var context = canvas.getContext('2d');
+			var width   = window.innerWidth;
+			var height  = window.innerHeight;
+			var socket  = io.connect();
+
+			// set canvas to full browser width/height
+			canvas.width = width/2;
+			canvas.height = height/2;
+			var canvasRect = canvas.getBoundingClientRect();
+			console.log(canvasRect);
+
+			// register mouse event handlers
+			canvas.onmousedown = function(e){ mouse.click = true; };
+			canvas.onmouseup = function(e){ mouse.click = false; };
+
+			canvas.onmousemove = function(e) {
+				 // normalize mouse position to range 0.0 - 1.0
+				 mouse.pos.x = (e.clientX - canvasRect.left)/ width;
+				 mouse.pos.y = (e.clientY - canvasRect.top + body.scrollTop) / height;
+				 mouse.move = true;
+			};
+
+			// draw line received from server
+			socket.on('draw_line', function (data) {
+				 var line = data.line;
+				 context.beginPath();
+				 context.moveTo(line[0].x * width, line[0].y * height);
+				 context.lineTo(line[1].x * width, line[1].y * height);
+				 context.stroke();
+			});
+
+			// main loop, running every 25ms
+			function mainLoop() {
+				 // check if the user is drawing
+				 if (mouse.click && mouse.move && mouse.pos_prev) {
+						// send line to to the server
+						socket.emit('draw_line', { line: [ mouse.pos, mouse.pos_prev ] });
+						mouse.move = false;
+				 }
+				 mouse.pos_prev = {x: mouse.pos.x, y: mouse.pos.y};
+				 setTimeout(mainLoop, 25);
+			}
+			mainLoop();
+	 });
+	 </script> -->
+</html>
