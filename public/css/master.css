@@ -21,6 +21,8 @@ h1,  {
 h1 a,{ font-weight: inherit; }
 h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
 
+ 
+
 
 #header nav {
   text-align: right;
@@ -76,16 +78,4 @@ h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
 
 #header p strong {
     color:#fff;
-}
-
-#header nav ul li a.btn {
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: 2px solid #fff;
-}
-
-#header nav ul li a.btn:hover {
-  background: #fff;
-  color: #009be8;
 }
